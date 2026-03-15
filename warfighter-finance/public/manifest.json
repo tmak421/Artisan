@@ -1,0 +1,28 @@
+{
+  "short_name": "FINRED Nav",
+  "name": "Financial Readiness Navigator v8",
+  "description": "Military financial education powered by DoD FINRED approved content. 13 sections, 31+ topics, 6 interactive calculators.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#0B0E14",
+  "background_color": "#0B0E14",
+  "orientation": "portrait",
+  "categories": ["finance", "education", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

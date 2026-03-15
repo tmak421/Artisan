@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- FIX 1: viewport-fit=cover + NO maximum-scale (prevents iOS zoom lock bugs) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Financial Readiness Navigator</title>
+  <meta name="description" content="Military financial education powered by DoD FINRED approved content. 13 sections, 31+ topics, 6 interactive calculators." />
+
+  <!-- PWA Meta Tags -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0B0E14" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- iOS PWA Support -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="FINRED Nav" />
+  <link rel="apple-touch-icon" href="/icon-192.png" />
+
+  <!-- FIX 2: Load fonts in <head> via <link>, NOT @import inside <style> tag -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+
+  <style>
+    /* FIX 3: Critical CSS — use -webkit-fill-available for iOS height fix */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      /* iOS Safari: use fill-available to avoid toolbar overlap */
+      height: -webkit-fill-available;
+      background: #0B0E14;
+      overscroll-behavior: none; /* Prevents iOS bounce on root */
+    }
+    #root {
+      height: 100%;
+      height: -webkit-fill-available;
+    }
+    /* FIX 4: Safe area padding on body — correct placement */
+    body {
+      padding-top: env(safe-area-inset-top);
+      padding-right: env(safe-area-inset-right);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registered:', reg.scope))
+          .catch(err => console.log('SW registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
