@@ -338,7 +338,20 @@ export default function App() {
                 <p>We will be in touch within one business day.</p>
               </div>
             ) : (
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form className="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
+                <input type="hidden" name="form-name" value="contact" />
+                <p hidden><input name="bot-field" /></p>
+                <div className="form-group">
+                  <label htmlFor="inquiry">Inquiry Type</label>
+                  <select id="inquiry" name="inquiry" required>
+                    <option value="">Select one...</option>
+                    <option value="Contracting / Capability Statement">Contracting / Capability Statement</option>
+                    <option value="Teaming Partner">Teaming Partner</option>
+                    <option value="Financial Readiness Services">Financial Readiness Services</option>
+                    <option value="Bitcoin Education">Bitcoin Education</option>
+                    <option value="General">General</option>
+                  </select>
+                </div>
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input
@@ -392,6 +405,7 @@ export default function App() {
             <p>C-Corp · El Paso, TX · UEI: HL1CLL6N9QJ5 · CAGE: 12BX1</p>
             <p>Service-Disabled Veteran-Owned Small Business (SDVOSB) · SAM.gov Registered</p>
             <p>AFC® Financial Counseling · FINRED/§992 Compliant · Bitcoin-Only</p>
+            <p><a href="mailto:info@artisanbitcoin.com" style={{color:"var(--bitcoin)"}}>info@artisanbitcoin.com</a></p>
           </div>
           <div className="footer-copy">
             © {new Date().getFullYear()} Artisan Bitcoin Inc. All rights reserved.
