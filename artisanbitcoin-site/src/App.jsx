@@ -56,7 +56,7 @@ export default function App() {
       <header className="nav">
         <div className="nav-inner">
           <a href="#top" className="nav-logo">
-            <span className="logo-mark">⬡</span>
+            <img src="/logo-icon.jpeg" alt="Artisan Bitcoin" className="nav-logo-img" />
             <span className="logo-text">ARTISAN <strong>BITCOIN</strong></span>
           </a>
           <button
@@ -117,9 +117,7 @@ export default function App() {
           </div>
         </div>
         <div className="hero-visual" aria-hidden="true">
-          <div className="hex-ring">
-            <div className="hex-core">₿</div>
-          </div>
+          <img src="/logo-full.jpeg" alt="Artisan Bitcoin Inc." className="hero-logo-img" />
         </div>
       </section>
 
@@ -384,7 +382,7 @@ export default function App() {
       <footer className="footer">
         <div className="footer-inner">
           <div className="footer-brand">
-            <span className="logo-mark">⬡</span>
+            <img src="/logo-icon.jpeg" alt="" className="nav-logo-img" />
             <span className="logo-text">ARTISAN <strong>BITCOIN</strong> INC.</span>
           </div>
           <div className="footer-info">
