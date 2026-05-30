@@ -56,7 +56,7 @@ export default function App() {
       <header className="nav">
         <div className="nav-inner">
           <a href="#top" className="nav-logo">
-            <img src="/logo-icon.jpeg" alt="Artisan Bitcoin" className="nav-logo-img" />
+            <img src="/logo-patch.png" alt="Artisan Bitcoin" className="nav-logo-img" />
             <span className="logo-text">ARTISAN <strong>BITCOIN</strong></span>
           </a>
           <button
@@ -117,7 +117,7 @@ export default function App() {
           </div>
         </div>
         <div className="hero-visual" aria-hidden="true">
-          <img src="/logo-full.jpeg" alt="Artisan Bitcoin Inc." className="hero-logo-img" />
+          <img src="/hero-gold-bitcoin.png" alt="Artisan Bitcoin Inc." className="hero-logo-img" />
         </div>
       </section>
 
@@ -177,7 +177,9 @@ export default function App() {
               <span>§41 R&amp;D Credit Eligible</span>
             </div>
           </div>
-          <div className="about-values">
+          <div className="about-right">
+            <img src="/hero-plaque.png" alt="Todd Maki AFC® — Artisan Bitcoin Inc." className="plaque-img" />
+            <div className="about-values">
             <div className="value-card">
               <span className="value-icon">⚔️</span>
               <h4>Veteran-Led</h4>
@@ -198,6 +200,7 @@ export default function App() {
               <h4>AI-Accelerated</h4>
               <p>Four-agent Claude Code system for capture, proposals, ops, and R&D documentation.</p>
             </div>
+          </div>
           </div>
         </div>
       </section>
