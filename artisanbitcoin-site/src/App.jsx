@@ -23,7 +23,7 @@ const SERVICES = [
   {
     icon: "📋",
     title: "Federal Contracting & Capture",
-    desc: "SAM.gov-registered, CAGE-coded, SDVOSB-certified contracting entity pursuing DoD, VA, and federal agency opportunities in financial education and advisory services.",
+    desc: "SAM.gov-registered (Active), CAGE-coded, SDVOSB-eligible contracting entity pursuing DoD, VA, and federal agency opportunities in financial education and advisory services.",
   },
   {
     icon: "🤖",
@@ -225,7 +225,8 @@ export default function App() {
                   <tr><td>CAGE</td><td>12BX1</td></tr>
                   <tr><td>State</td><td>Texas (El Paso)</td></tr>
                   <tr><td>Business Type</td><td>C-Corp | SDVOSB (pending)</td></tr>
-                  <tr><td>SAM.gov</td><td>Active Registration</td></tr>
+                  <tr><td>SAM.gov</td><td>✓ Active</td></tr>
+                  <tr><td>SDVOSB</td><td>In Process — SBA VetCert</td></tr>
                 </tbody>
               </table>
             </div>
