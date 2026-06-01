@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0A0A0A;
+  color: #E8E8E8;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Left-border callout blocks — field manual style */
+.callout {
+  border-left: 3px solid #00CC66;
+  padding: 12px 20px;
+  background: #141414;
+  margin: 12px 0;
+}
+
+/* Section rule */
+.section-rule {
+  border: none;
+  border-top: 1px solid #2A2A2A;
+  margin: 0;
+}
+
+/* Readiness score meter */
+.score-red    { color: #FF3B3B; }
+.score-amber  { color: #FFB800; }
+.score-green  { color: #00CC66; }
+
+/* Assessment option button */
+.q-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #1E1E1E;
+  border: 1px solid #2A2A2A;
+  color: #E8E8E8;
+  padding: 12px 16px;
+  margin: 6px 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+.q-option:hover  { border-color: #00CC66; background: #232323; }
+.q-option.chosen { border-color: #00CC66; background: #0f2a1a; }
