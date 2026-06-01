@@ -79,7 +79,7 @@ const TIER_DATA = {
 
 // ── Assessment component ───────────────────────────────────────
 function Assessment() {
-  const [answers, setAnswers]   = useState({})
+  const [answers, setAnswers]     = useState({})
   const [submitted, setSubmitted] = useState(false)
 
   const allAnswered = Object.keys(answers).length === QUESTIONS.length
@@ -102,7 +102,7 @@ function Assessment() {
         </div>
         <p className="text-txt-primary mb-6 leading-relaxed">{td.msg}</p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <a href="#buy"
+          <a href="#book"
             className="bg-accent-green text-black font-bold py-4 px-8 text-center uppercase tracking-widest text-sm hover:brightness-110 transition-all">
             {td.cta}
           </a>
@@ -160,7 +160,7 @@ export default function Home() {
               YourFinance.ai
             </span>
           </div>
-          <a href="#buy"
+          <a href="#book"
             className="bg-accent-green text-black text-xs font-bold uppercase tracking-widest px-5 py-2 hover:brightness-110 transition-all">
             Get the Book
           </a>
@@ -168,11 +168,9 @@ export default function Home() {
       </nav>
 
       {/* ── SECTION 1: HERO ── */}
-      <section className="pt-28 pb-20 px-6 max-w-4xl mx-auto">
-        {/* Topographic grid overlay effect */}
+      <section className="pt-28 pb-20 px-6 max-w-4xl mx-auto relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{backgroundImage:'repeating-linear-gradient(0deg,#00CC66,#00CC66 1px,transparent 1px,transparent 60px),repeating-linear-gradient(90deg,#00CC66,#00CC66 1px,transparent 1px,transparent 60px)'}} />
-
         <div className="relative">
           <div className="font-mono text-accent-green text-xs uppercase tracking-widest mb-4">
             ▌ FINANCIAL READINESS FIELD MANUAL — BOOK 1
@@ -189,10 +187,12 @@ export default function Home() {
             With a battle plan.
           </p>
           <p className="text-txt-primary mb-10 max-w-lg leading-relaxed">
-            From an AFC®-credentialed military financial counselor who has been exactly where you are — and fought his way out. Written for Active Duty, Guard, and Reservists at every pay grade.
+            From an AFC®-credentialed military financial counselor who has been exactly
+            where you are — and fought his way out. Written for Active Duty, Guard,
+            and Reservists at every pay grade.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="#buy"
+            <a href="#book"
               className="bg-accent-green text-black font-black uppercase tracking-widest text-sm py-5 px-10 text-center hover:brightness-110 transition-all">
               Get the Field Manual — $4.99
             </a>
@@ -215,20 +215,38 @@ export default function Home() {
           The System Failed to Prepare You.
         </h2>
 
-        {/* [TODD: STORY — Your opening scenario. 2-3 sentences from your experience. Placeholder below.] */}
-        <p className="text-txt-primary mb-8 max-w-2xl leading-relaxed text-lg border-l-2 border-accent-green pl-6 italic">
-          "I've sat across the desk from an E-4 with a $32,000 car loan on a $2,400 monthly paycheck.
-          That's not a financial problem. That's a system that never gave him the tools to make a
-          different decision."
+        <p className="text-txt-primary mb-10 max-w-2xl leading-relaxed text-lg border-l-2 border-accent-green pl-6 italic">
+          "The first time I watched a brother-in-arms financially destroy himself,
+          I stood by and said nothing. We were living in the barracks. My roommate
+          had the car — a top-of-the-line BMW, the kind of European luxury that
+          turns every head at the gate. It consumed more than a third of his monthly
+          paycheck. I ran the math in my head and the coordinates never added up.
+          I PCS'd before I found out what happened. I never learned if he pulled out
+          of that dive or if the debt finally took him down. I still think about it.
+          That question is why this book exists."
         </p>
-        <p className="text-sm text-accent-gold font-mono mb-10">— Todd Maki, AFC® &nbsp;|&nbsp; [TODD: Personalize this opening story with your voice]</p>
+        <p className="text-accent-gold font-mono text-sm mb-10">
+          — Todd Maki, AFC® · Retired U.S. Army 1LT
+        </p>
 
         <div className="grid sm:grid-cols-2 gap-4 mb-10">
           {[
-            { label: 'Nobody taught you how military pay actually works.', detail: 'BAH, BAS, COLA, SDP, SCRA — these aren\'t acronyms. They\'re money on the table you\'re walking past every month.' },
-            { label: 'FINRED briefings check a box. They don\'t change behavior.', detail: 'One slide deck during in-processing isn\'t financial education. It\'s compliance theater. You deserved more.' },
-            { label: 'Predatory lenders know your BAH better than you do.', detail: 'Every car lot, payday lender, and rent-to-own store near every gate is staffed by people who studied your LES before you did.' },
-            { label: 'The military rewards physical readiness. Financial readiness is on you.', detail: 'There\'s no APFT for your bank account. No one flags you when your net worth goes negative. That changes today.' },
+            {
+              label: 'Nobody taught you how military pay actually works.',
+              detail: 'BAH, BAS, COLA, SDP, SCRA — these aren\'t acronyms. They\'re money on the table you\'re walking past every month.'
+            },
+            {
+              label: 'FINRED briefings check a box. They don\'t change behavior.',
+              detail: 'One slide deck during in-processing isn\'t financial education. It\'s compliance theater. You deserved more.'
+            },
+            {
+              label: 'Predatory lenders know your BAH better than you do.',
+              detail: 'Every car lot, payday lender, and rent-to-own store near every gate is staffed by people who studied your LES before you did.'
+            },
+            {
+              label: 'The military rewards physical readiness. Financial readiness is on you.',
+              detail: 'There\'s no APFT for your bank account. No one flags you when your net worth goes negative. That changes today.'
+            },
           ].map((item, i) => (
             <div key={i} className="callout">
               <p className="font-bold text-txt-heading mb-1">{item.label}</p>
@@ -237,13 +255,16 @@ export default function Home() {
           ))}
         </div>
 
-        {/* [TODD: LOCAL INSIGHT — Optional Fort Bliss/El Paso reference if you want it. Remove flag to skip.] */}
         <div className="bg-bg-surface border border-border-sub p-6">
           <div className="font-mono text-accent-amber text-xs uppercase tracking-widest mb-2">⚠ MISSION INTEL</div>
           <p className="text-txt-primary leading-relaxed">
-            The average service member loses an estimated <span className="font-mono font-bold text-accent-amber">$72,000</span> over a 20-year career to preventable financial decisions — car loans, missed TSP matching, payday debt, and PCS moves without a cash reserve. This book exists to stop that bleeding.
+            The military teaches you to fire a weapon, navigate terrain, lead troops under fire,
+            and manage millions of dollars in government equipment. But somewhere between Basic
+            Training and your first duty station, the financial briefings stop. You get a
+            fifteen-minute block on TSP during in-processing. You get a pamphlet about payday loans.
+            And then you're on your own — with a steady paycheck, a BAH deposit, and a row of
+            car dealerships outside the gate staffed by people who have been waiting for you.
           </p>
-          <p className="text-xs text-gray-500 mt-2 font-mono">[TODD: STAT/SOURCE — Replace with a verified FINRA/NFCS or DoD statistic before launch]</p>
         </div>
       </section>
 
@@ -255,20 +276,19 @@ export default function Home() {
           ▌ THE SOLUTION
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Book cover */}
+          {/* Book cover placeholder — clean, no visible notes */}
           <div className="flex justify-center">
-            {/* [TODD: Replace placeholder with actual book cover — save as book-cover.png in public/] */}
-            <div className="w-64 h-80 bg-bg-elevated border border-border-sub flex flex-col items-center justify-center text-center p-6">
-              <div className="font-mono text-accent-green text-xs tracking-widest mb-4 uppercase">Book 1</div>
+            <div className="w-64 h-80 bg-bg-elevated border-2 border-accent-green/30 flex flex-col items-center justify-center text-center p-6">
+              <div className="font-mono text-accent-green text-xs tracking-widest mb-3 uppercase">Book 1 of 9</div>
               <div className="font-black text-txt-heading text-xl uppercase leading-tight mb-2">
                 Warrior Personal Finance
               </div>
-              <div className="text-accent-gold font-mono text-sm mb-4">The Military Money Manual</div>
-              <div className="border-t border-border-sub pt-4 w-full">
-                <div className="text-txt-primary text-sm">Todd Maki, AFC®</div>
-                <div className="text-gray-500 text-xs mt-1">Artisan Bitcoin Inc.</div>
+              <div className="text-accent-gold font-mono text-sm mb-4">
+                The Military Money Manual
               </div>
-              <div className="text-xs text-gray-600 mt-4 font-mono italic">[Replace with final cover art]</div>
+              <div className="w-8 border-t border-border-sub mb-4" />
+              <div className="text-txt-primary text-sm">Todd Maki, AFC®</div>
+              <div className="text-gray-500 text-xs mt-1">Artisan Bitcoin Inc.</div>
             </div>
           </div>
 
@@ -324,7 +344,7 @@ export default function Home() {
             What's Your Readiness Score?
           </h2>
           <p className="text-txt-primary mb-10 max-w-xl leading-relaxed">
-            7 questions. 2 minutes. You'll get a RED / AMBER / GREEN readiness tier —
+            7 questions. 2 minutes. You'll get a RED / AMBER / GREEN readiness tier
             and a specific action plan based on where you actually stand.
           </p>
           <Assessment />
@@ -353,19 +373,20 @@ export default function Home() {
               Todd Maki, AFC®
             </h2>
 
-            {/* [TODD: STORY — 2-3 sentences on your personal why. Why you wrote this book. Placeholder below.] */}
             <p className="text-txt-primary mb-4 leading-relaxed border-l-2 border-accent-green pl-4 italic">
-              "The first time I watched a brother-in-arms financially destroy himself, I stood by and said nothing.
-              I was wrong. That moment — and the dozens like it I witnessed over the next two decades —
-              is why this book exists."
+              "I didn't come to this credential from a classroom. I came to it from
+              the hard way — broke, figuring it out through free classes because I
+              couldn't afford anything else, praying for a life with a clear upside.
+              I learned about debt not as an abstract concept but as something that
+              had already done damage to me personally. And then I learned how to
+              fight back."
             </p>
-            <p className="text-xs text-accent-gold font-mono mb-6">[TODD: Replace with your exact voice from the intro chapter]</p>
-
-            <p className="text-txt-primary mb-6 leading-relaxed text-sm">
-              Todd has supported service members and families across Army installations in the United States
-              and Germany, building a career at the intersection of military service and financial readiness.
-              He came to the AFC® credential the hard way — broke, figuring it out through free resources,
-              one repetition at a time.
+            <p className="text-txt-primary text-sm mb-6 leading-relaxed">
+              Todd has supported service members and families across Army installations
+              in the United States and Germany, building a career at the intersection
+              of military service and financial readiness. The AFC® credential is the
+              most important thing he has ever done professionally — it puts him in
+              the room with people who are exactly where he once was.
             </p>
 
             <div className="font-mono text-accent-green text-xs uppercase tracking-widest mb-3">
@@ -389,8 +410,8 @@ export default function Home() {
 
       <hr className="section-rule" />
 
-      {/* ── SECTION 6: BUY THE BOOK ── */}
-      <section id="buy" className="py-20 px-6 bg-bg-surface">
+      {/* ── SECTION 6: GET THE BOOK ── */}
+      <section id="book" className="py-20 px-6 bg-bg-surface">
         <div className="max-w-4xl mx-auto">
           <div className="font-mono text-accent-green text-xs uppercase tracking-widest mb-4">
             ▌ EXECUTE
@@ -399,54 +420,56 @@ export default function Home() {
             Get the Field Manual
           </h2>
           <p className="text-txt-primary mb-10 max-w-xl leading-relaxed">
-            Two paths. One mission. Pick the channel that works for you.
+            Direct purchase and Amazon availability launching soon.
+            Enter your email to be notified the moment it drops.
           </p>
 
-          <div className="grid sm:grid-cols-2 gap-6 mb-10">
-            {/* Direct purchase */}
-            <div className="border border-accent-green bg-bg-elevated p-8">
-              <div className="font-mono text-accent-green text-xs uppercase tracking-widest mb-2">Recommended</div>
-              <div className="text-2xl font-black text-txt-heading mb-1">Buy Direct</div>
-              <div className="font-mono text-accent-green text-3xl font-bold mb-2">$4.99</div>
-              <div className="text-txt-primary text-sm mb-1">eBook — instant download</div>
-              <div className="text-gray-500 text-xs font-mono mb-6">Print edition: $14.99</div>
-              <p className="text-txt-primary text-sm mb-6 leading-relaxed">
-                Higher margin supports the mission directly. You own the purchase — no Amazon account required.
-              </p>
-              {/* [TODD: Wire Stripe checkout link here after CPA sign-off] */}
+          {/* Email notify form — no Stripe needed, no stub links */}
+          <div className="border border-accent-green bg-bg-elevated p-8 max-w-lg">
+            <div className="font-mono text-accent-green text-xs uppercase tracking-widest mb-2">
+              Notify Me at Launch
+            </div>
+            <div className="text-2xl font-black text-txt-heading mb-1">
+              Warrior Personal Finance
+            </div>
+            <div className="font-mono text-accent-gold text-lg font-bold mb-4">
+              $4.99 eBook · $14.99 Print
+            </div>
+            <p className="text-txt-primary text-sm mb-6 leading-relaxed">
+              Available on Amazon KDP and direct purchase. Drop your email and
+              you'll be first to know when the book goes live.
+            </p>
+            <form
+              name="notify"
+              method="POST"
+              data-netlify="true"
+              className="flex flex-col sm:flex-row gap-3"
+            >
+              <input type="hidden" name="form-name" value="notify" />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                className="flex-1 bg-bg-primary border border-border-sub px-4 py-3 text-txt-primary text-sm outline-none focus:border-accent-green transition-colors"
+              />
               <button
-                className="w-full bg-accent-green text-black font-black uppercase tracking-widest text-sm py-4 hover:brightness-110 transition-all">
-                Buy Now — $4.99 eBook
+                type="submit"
+                className="bg-accent-green text-black font-black uppercase tracking-widest text-xs px-6 py-3 hover:brightness-110 transition-all whitespace-nowrap">
+                Notify Me
               </button>
-              <p className="text-xs text-gray-600 font-mono mt-3 text-center">[Stripe checkout — activate after CPA review]</p>
-            </div>
-
-            {/* Amazon */}
-            <div className="border border-border-sub bg-bg-elevated p-8">
-              <div className="font-mono text-gray-500 text-xs uppercase tracking-widest mb-2">Also Available</div>
-              <div className="text-2xl font-black text-txt-heading mb-1">Buy on Amazon</div>
-              <div className="font-mono text-txt-primary text-3xl font-bold mb-2">$4.99</div>
-              <div className="text-txt-primary text-sm mb-1">Kindle eBook</div>
-              <div className="text-gray-500 text-xs font-mono mb-6">Print: $14.99 — Prime eligible</div>
-              <p className="text-txt-primary text-sm mb-6 leading-relaxed">
-                Prefer Amazon? Reviews and discoverability help the series grow — and help the next service member find it.
-              </p>
-              {/* [TODD: Replace # with your Amazon KDP listing URL once live] */}
-              <a href="#"
-                className="block w-full border border-txt-primary text-txt-heading font-black uppercase tracking-widest text-sm py-4 text-center hover:border-accent-green hover:text-accent-green transition-colors">
-                Buy on Amazon →
-              </a>
-              <p className="text-xs text-gray-600 font-mono mt-3 text-center">[TODD: Add Amazon KDP URL before launch]</p>
-            </div>
+            </form>
           </div>
 
           {/* Series teaser */}
-          <div className="border border-border-sub p-6 bg-bg-primary">
-            <div className="font-mono text-accent-gold text-xs uppercase tracking-widest mb-2">Coming Soon</div>
+          <div className="border border-border-sub p-6 bg-bg-primary mt-6 max-w-lg">
+            <div className="font-mono text-accent-gold text-xs uppercase tracking-widest mb-2">
+              Part of the 9-Volume Financial Bootcamp Series
+            </div>
             <p className="text-txt-primary text-sm leading-relaxed">
-              <span className="text-txt-heading font-bold">Part of the 9-Volume Financial Bootcamp Series.</span>{' '}
-              Book 1 is your foundation. Books 2–9 cover the full lifecycle: TSP optimization, transition
-              income strategy, real estate, veteran benefits, and building generational wealth on a military timeline.
+              Book 1 is your foundation. Books 2–9 cover the full military financial
+              lifecycle: TSP optimization, transition strategy, real estate, veteran
+              benefits, and building generational wealth on a military timeline.
             </p>
           </div>
         </div>
@@ -468,8 +491,9 @@ export default function Home() {
               className="text-accent-green text-xs font-mono hover:underline">
               artisanbitcoin.com →
             </a>
-            <div className="text-gray-600 text-xs mt-1 max-w-xs text-right leading-relaxed">
-              Educational content only. Not financial advice. Todd Maki is an AFC®, not a registered investment advisor.
+            <div className="text-gray-600 text-xs mt-1 max-w-xs leading-relaxed">
+              Educational content only. Not financial advice.
+              Todd Maki is an AFC®, not a registered investment advisor.
             </div>
           </div>
         </div>
