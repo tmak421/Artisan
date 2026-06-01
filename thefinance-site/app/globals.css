@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  --navy:      #0D0E14;
+  --navy2:     #12141C;
+  --navy3:     #191C28;
+  --surface:   #1E2130;
+  --gold:      #C8A951;
+  --gold-dim:  rgba(200,169,81,0.15);
+  --gold-glow: rgba(200,169,81,0.08);
+  --olive:     #4B5320;
+  --text:      #E8E4D8;
+  --text-muted:#8A8478;
+  --border:    rgba(200,169,81,0.14);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.3;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.intel-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  padding: 28px 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.intel-card:hover {
+  border-color: rgba(200,169,81,0.35);
+  transform: translateY(-3px);
+}
+
+.btn-gold {
+  display: inline-block;
+  background: var(--gold);
+  color: #0D0E14;
+  font-weight: 800;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 32px;
+  cursor: pointer;
+  border: none;
+  transition: filter 0.2s, transform 0.15s;
+}
+.btn-gold:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 32px;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline:hover { background: var(--gold); color: #0D0E14; }
+
+.module-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--navy3);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.critical-badge {
+  background: #8B1A1A;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.elevated-badge {
+  background: #7B4F00;
+  color: #FFF3CD;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.new-badge {
+  background: var(--olive);
+  color: var(--gold);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
