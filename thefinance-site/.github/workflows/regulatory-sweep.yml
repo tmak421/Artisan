@@ -1,0 +1,31 @@
+name: Weekly Regulatory Intelligence Sweep
+
+on:
+  schedule:
+    # Every Monday at 7:00 AM Central (13:00 UTC)
+    - cron: '0 13 * * 1'
+  workflow_dispatch:  # Allow manual trigger from GitHub UI
+
+jobs:
+  regulatory-sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run Regulatory Sweep
+        env:
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+        run: node .github/scripts/regulatory-sweep.js
+
+      - name: Upload sweep report
+        uses: actions/upload-artifact@v4
+        with:
+          name: regulatory-sweep-${{ github.run_number }}
+          path: sweep-report.md
+          retention-days: 90
